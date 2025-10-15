@@ -1,147 +1,101 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Missão N.I.C.K</title>
-<style>
-  body {
-    margin: 0;
-    font-family: 'Poppins', sans-serif;
-    background-color: #000;
-    color: white;
-    overflow-x: hidden;
-  }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Missão N.I.C.K</title>
+  <style>
+    body {
+      margin: 0;
+      background-color: #000;
+      color: white;
+      font-family: 'Poppins', sans-serif;
+      text-align: center;
+      overflow-x: hidden;
+    }
 
-  .container {
-    text-align: center;
-    padding: 40px 20px;
-  }
+    .container {
+      max-width: 400px;
+      margin: auto;
+      padding: 20px;
+    }
 
-  h1 {
-    font-size: 2rem;
-    margin-bottom: 20px;
-  }
+    img {
+      width: 100%;
+      aspect-ratio: 9/16;
+      object-fit: cover;
+      border-radius: 16px;
+      display: none;
+    }
 
-  .gallery {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 90%;
-    max-width: 400px;
-    margin: 0 auto;
-  }
+    img.active {
+      display: block;
+    }
 
-  .gallery img {
-    width: 100%;
-    aspect-ratio: 9/16;
-    border-radius: 20px;
-    object-fit: cover;
-    display: none;
-    box-shadow: 0 0 20px rgba(255,255,255,0.2);
-  }
+    .arrow {
+      font-size: 2rem;
+      cursor: pointer;
+      color: #fff;
+      margin: 10px;
+      user-select: none;
+    }
 
-  .gallery img.active {
-    display: block;
-  }
-
-  .arrow {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 2rem;
-    background: rgba(255,255,255,0.2);
-    color: white;
-    border: none;
-    padding: 10px;
-    border-radius: 50%;
-    cursor: pointer;
-  }
-
-  .arrow:hover {
-    background: rgba(255,255,255,0.4);
-  }
-
-  .arrow.left {
-    left: -50px;
-  }
-
-  .arrow.right {
-    right: -50px;
-  }
-
-  .letter {
-    max-width: 600px;
-    margin: 40px auto;
-    background: rgba(255,255,255,0.1);
-    padding: 25px;
-    border-radius: 15px;
-    text-align: left;
-    line-height: 1.7;
-    font-size: 1rem;
-  }
-
-  .letter p {
-    margin-bottom: 15px;
-  }
-
-  @media (max-width: 600px) {
-    .arrow.left { left: 10px; }
-    .arrow.right { right: 10px; }
-  }
-</style>
+    .carta {
+      margin-top: 40px;
+      padding: 20px;
+      background-color: rgba(255, 255, 255, 0.05);
+      border-radius: 12px;
+      line-height: 1.6;
+    }
+  </style>
 </head>
 <body>
+  <audio id="musicaInicio" autoplay loop>
+    <source src="assets/musica.mp3" type="audio/mpeg" />
+  </audio>
 
-<audio id="bgMusic" src="assets/inicio.mp3" autoplay loop></audio>
-<audio id="photoMusic" src="assets/2-much-live-from-paris.mp3"></audio>
+  <div class="container">
+    <h2>Início da nossa história</h2>
+    <div>
+      <span class="arrow" id="prev">&#8592;</span>
+      <img src="assets/foto1.jpg" class="active" />
+      <img src="assets/foto2.jpg" />
+      <img src="assets/foto3.jpg" />
+      <img src="assets/foto4.jpg" />
+      <img src="assets/foto5.jpg" />
+      <img src="assets/foto6.jpg" />
+      <img src="assets/foto7.jpg" />
+      <img src="assets/foto9.jpg" />
+      <img src="assets/foto10.jpg" />
+      <span class="arrow" id="next">&#8594;</span>
+    </div>
 
-<div class="container">
-  <h1>Início da nossa história 💫</h1>
-
-  <div class="gallery">
-    <button class="arrow left" onclick="changeImage(-1)">&#10094;</button>
-    <img src="assets/FOTO-1-NICK.jpg" class="active">
-    <img src="assets/FOTO-2-NICK.jpg">
-    <img src="assets/FOTO-3-NICK.jpg">
-    <img src="assets/FOTO-4-NICK.webp">
-    <img src="assets/FOTO-4-2.jpg">
-    <img src="assets/FOTO-5-NICK.webp">
-    <img src="assets/FOTO-6-NICK.jpg">
-    <img src="assets/FOTO-7-NICK.jpg">
-    <img src="assets/FOTO-8-NICK.jpg">
-    <img src="assets/FOTO-9-NICK.webp">
-    <img src="assets/FOTO-10-NICK.webp">
-    <button class="arrow right" onclick="changeImage(1)">&#10095;</button>
+    <div class="carta">
+      <p>
+        Desde o início, cada momento ao seu lado se tornou uma lembrança única.  
+        Cada foto, cada sorriso, cada olhar guarda uma parte da nossa história.  
+        Que essa lembrança continue viva, e essa música toque o quanto te quero bem.
+      </p>
+    </div>
   </div>
 
-  <div class="letter">
-    <p>Oi, meu amor 💌</p>
-    <p>Desde o início da nossa história, cada momento ao seu lado tem sido especial.  
-       Cada riso, cada olhar, cada lembrança — tudo se tornou parte do que eu mais amo viver.</p>
-    <p>Esse pequeno espaço é só um jeitinho de guardar um pedacinho de nós,  
-       daquilo que o tempo não apaga e o coração não esquece. 💖</p>
-    <p>Com amor,<br>Seu amor.</p>
-  </div>
-</div>
+  <script>
+    const imagens = document.querySelectorAll("img");
+    const prev = document.getElementById("prev");
+    const next = document.getElementById("next");
+    let index = 0;
 
-<script>
-let currentIndex = 0;
-const images = document.querySelectorAll('.gallery img');
-const photoMusic = document.getElementById('photoMusic');
-let musicPlayed = false;
+    prev.addEventListener("click", () => {
+      imagens[index].classList.remove("active");
+      index = (index - 1 + imagens.length) % imagens.length;
+      imagens[index].classList.add("active");
+    });
 
-function changeImage(direction) {
-  images[currentIndex].classList.remove('active');
-  currentIndex = (currentIndex + direction + images.length) % images.length;
-  images[currentIndex].classList.add('active');
-
-  if (!musicPlayed) {
-    photoMusic.play();
-    musicPlayed = true;
-  }
-}
-</script>
+    next.addEventListener("click", () => {
+      imagens[index].classList.remove("active");
+      index = (index + 1) % imagens.length;
+      imagens[index].classList.add("active");
+    });
+  </script>
 </body>
 </html>
