@@ -50,31 +50,42 @@
   </style>
 </head>
 <body>
+  <!-- Música de fundo (início do site) -->
   <audio id="musicaInicio" autoplay loop>
-    <source src="assets/musica.mp3" type="audio/mpeg" />
+    <source src="assets/música.mp3" type="audio/mpeg" />
+  </audio>
+
+  <!-- Música principal (quando abrir as fotos) -->
+  <audio id="musicaFotos">
+    <source src="assets/música.mp3" type="audio/mpeg" />
   </audio>
 
   <div class="container">
     <h2>Início da nossa história</h2>
     <div>
       <span class="arrow" id="prev">&#8592;</span>
+
       <img src="assets/foto1.jpg" class="active" />
       <img src="assets/foto2.jpg" />
       <img src="assets/foto3.jpg" />
       <img src="assets/foto4.jpg" />
-      <img src="assets/foto5.jpg" />
+      <img src="assets/foto5.webp" />
       <img src="assets/foto6.jpg" />
       <img src="assets/foto7.jpg" />
-      <img src="assets/foto9.jpg" />
-      <img src="assets/foto10.jpg" />
+      <img src="assets/foto9.webp" />
+      <img src="assets/foto10.webp" />
+
       <span class="arrow" id="next">&#8594;</span>
     </div>
 
+    <!-- CARTA ORIGINAL -->
     <div class="carta">
       <p>
-        Desde o início, cada momento ao seu lado se tornou uma lembrança única.  
-        Cada foto, cada sorriso, cada olhar guarda uma parte da nossa história.  
-        Que essa lembrança continue viva, e essa música toque o quanto te quero bem.
+        Hoje, ao olhar para trás, percebo o quanto crescemos juntos. Cada momento, cada riso,
+        cada conversa, fez parte da construção da nossa história. Às vezes foi leve, às vezes
+        desafiador, mas sempre verdadeiro. E é isso que torna tudo tão especial.<br><br>
+        Que essa lembrança guarde não apenas fotos, mas sentimentos — o início da nossa jornada
+        e a promessa de que o melhor ainda está por vir.
       </p>
     </div>
   </div>
@@ -83,18 +94,30 @@
     const imagens = document.querySelectorAll("img");
     const prev = document.getElementById("prev");
     const next = document.getElementById("next");
+    const musicaFotos = document.getElementById("musicaFotos");
     let index = 0;
+    let musicaIniciada = false;
+
+    function mostrarImagem(i) {
+      imagens.forEach((img, idx) => img.classList.toggle("active", idx === i));
+    }
 
     prev.addEventListener("click", () => {
-      imagens[index].classList.remove("active");
       index = (index - 1 + imagens.length) % imagens.length;
-      imagens[index].classList.add("active");
+      mostrarImagem(index);
+      if (!musicaIniciada) {
+        musicaFotos.play();
+        musicaIniciada = true;
+      }
     });
 
     next.addEventListener("click", () => {
-      imagens[index].classList.remove("active");
       index = (index + 1) % imagens.length;
-      imagens[index].classList.add("active");
+      mostrarImagem(index);
+      if (!musicaIniciada) {
+        musicaFotos.play();
+        musicaIniciada = true;
+      }
     });
   </script>
 </body>
